@@ -1,0 +1,200 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  /*
+    2. Remove default margin
+  */
+  * {
+    margin: 0;
+  }
+  /*
+    3. Allow percentage-based heights in the application
+  */
+  html, body {
+    height: 100%;
+  }
+  /*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    font-family: 'League Spartan', sans-serif;
+  }
+  /*
+    6. Improve media defaults
+  */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  /*
+    7. Remove built-in form typography styles
+  */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  /*
+    8. Avoid text overflows
+  */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  /*
+    9. Create a root stacking context
+  */
+  #root, #__next {
+    isolation: isolate;
+  }
+  body{
+    text-align: center;
+    margin:1rem;
+    font-size:15px;
+  }
+  :root{
+    --clr-primary-verydarkMagenta: hsl(300, 43%, 22%);
+    --clr-primary-softpink: hsl(333, 80%, 67%);
+    --clr-neutral-DarkGrayishMagenta: hsl(303, 10%, 53%);
+    --clr-neutral-LightGrayishMagenta: hsl(300, 24%, 96%);
+    --clr-neutral-White: hsl(0, 0%, 100%);
+  }
+  h1{
+    line-height: 1;
+    font-size:2rem;
+    padding:1rem;
+    color:var(--clr-primary-verydarkMagenta);
+    padding-top:4rem;
+    line-height: 1;
+    max-width: 12ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .heading> p{
+    font-size:1.1rem;
+    padding:.5rem;
+    font-weight: 400;
+    color:var(--clr-neutral-DarkGrayishMagenta)
+  }
+  .rating{
+    margin:1rem;
+
+  }
+  .rating > div{
+    background-color: var(--clr-neutral-LightGrayishMagenta);
+    padding:1rem 0;
+    display:grid;
+    align-items: center;
+    color:var(--clr-primary-verydarkMagenta);
+    border-radius: 1rem;
+    font-weight: 700;
+    max-width:25rem;
+    margin:1rem auto;
+
+  }
+  .rating > div::before{
+    background-image: url('./images/icon-star.svg');
+    content:"";
+    width:100px;
+    margin: 0 auto;
+    height:1rem;
+    background-repeat:space;
+    margin-bottom: 1rem;
+  }
+
+  .comment > div{
+    background-color:var(--clr-primary-verydarkMagenta);
+    color:var(--clr-neutral-White);
+    padding:1rem;
+    text-align: left;
+    padding:2rem;
+    border-radius:.5rem;
+    max-width: 25rem;
+    margin :0  auto;
+    margin-top:1rem;
+  }
+  .comment > div > p{
+    font-size: 1.1rem;
+  } 
+  .row{
+    display:flex;
+    margin-bottom:1rem;
+  }
+  .row > div{
+    display:flex;
+    flex-direction: column;
+    line-height: 1.2;
+  }
+  span{
+    color:var(--clr-primary-softpink);
+    font-weight:400;
+  }
+  .row img{
+    border-radius: 50%;
+    padding-right:1rem;
+    height:2.5rem;
+
+  }
+  .name{
+    font-weight: 700;
+  }
+  @media (min-width:800px) {
+    body{
+      display:grid;
+      place-content: center;
+      text-align: left;
+    }
+    h1{
+      ≈
+      margin-left: 0;
+    }
+    .heading , .heading *{
+      margin: 0;
+      padding:0;
+    }
+    main{
+      display:grid;
+      grid-template-columns: 1fr 1.5fr;
+      max-width:1005px;
+      gap: 3rem;
+    }
+    .split{
+      display:flex;
+      gap:1rem;
+    }
+    .rating > div {
+      display:flex;
+      align-items: center;
+      padding:.7rem;
+      border-radius: 0;
+    }
+    .rating > div:first-of-type{
+      transform: translateX(-2rem);
+    }
+    .rating > div:last-of-type{
+      transform: translateX(2rem);
+    }
+    .rating > div::before{
+      margin: 0 1.5rem 0 1.5rem;
+      
+    }
+    .comment > div:first-of-type{
+      transform: translateY(-1rem);
+    }
+    .comment > div:last-child{
+      transform: translateY(1rem);
+    }
+  }
+.heading{
+  grid-column: 1/2;
+}
+.rating{
+  grid-column: 2/3;
+}
+.comment{
+  grid-column: 1/-1;
+}
